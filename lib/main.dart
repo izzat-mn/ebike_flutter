@@ -15,6 +15,7 @@ void main() {
       MultiProvider(
         providers: [
           ChangeNotifierProvider(create: (context) => BottomNavBarProvider()),
+          ChangeNotifierProvider(create: (context) => KYCProvider()),
         ],
         child: const MyApp(),
       ),
@@ -28,7 +29,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      routerConfig: Routers.router,
+      routeInformationParser: Routers.router.routeInformationParser,
+      routeInformationProvider: Routers.router.routeInformationProvider,
+      routerDelegate: Routers.router.routerDelegate,
       theme: ThemeData(
         useMaterial3: true,
         colorScheme: ColorScheme.light(background: Colour.black),
