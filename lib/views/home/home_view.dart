@@ -2,12 +2,14 @@ import 'package:ebike_flutter/custom/custom.dart';
 import 'package:ebike_flutter/utils/util.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
+    AppLocalizations local = AppLocalizations.of(context)!;
     return PageTemplate(
       padding: const EdgeInsets.symmetric(vertical: 42.0, horizontal: 24),
       children: [
@@ -113,7 +115,7 @@ class HomeView extends StatelessWidget {
         ),
         const SizedBox(height: 20),
         Text(
-          'Choose Your Type',
+          local.choose_your_type,
           style: TextStyle(
             color: Colour.white,
             fontSize: 14,
