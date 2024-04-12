@@ -1,4 +1,6 @@
 import 'package:ebike_flutter/utils/util.dart';
+import 'package:ebike_flutter/views/my_bike/my_bike_view.dart';
+import 'package:ebike_flutter/views/order/order_view.dart';
 import 'package:ebike_flutter/views/view.dart';
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
@@ -14,8 +16,8 @@ class BottomNavBarProvider with ChangeNotifier {
 
   List<Widget> pages = [
     const HomeView(),
-    Container(),
-    Container(),
+    const MyBikeView(),
+    const OrderView(),
     Container(),
   ];
 

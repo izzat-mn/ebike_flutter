@@ -1,15 +1,29 @@
 import 'package:ebike_flutter/custom/custom.dart';
+import 'package:ebike_flutter/providers/check_out_provider.dart';
 import 'package:ebike_flutter/utils/util.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 
-class HomeView extends StatelessWidget {
+class HomeView extends StatefulWidget {
   const HomeView({super.key});
 
   @override
+  State<HomeView> createState() => _HomeViewState();
+}
+
+class _HomeViewState extends State<HomeView> {
+  late AppLocalizations local;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    local = AppLocalizations.of(context)!;
+  }
+
+  @override
   Widget build(BuildContext context) {
-    AppLocalizations local = AppLocalizations.of(context)!;
     return PageTemplate(
       padding: const EdgeInsets.symmetric(vertical: 42.0, horizontal: 24),
       children: [
@@ -21,7 +35,9 @@ class HomeView extends StatelessWidget {
           child: Material(
             color: Colors.transparent,
             child: InkWell(
-              onTap: () {},
+              onTap: () {
+                context.go('/check_out');
+              },
               borderRadius: BorderRadius.circular(10),
               child: Padding(
                 padding:
@@ -231,40 +247,40 @@ class HomeView extends StatelessWidget {
                                   TextStyle(fontSize: 10, color: Colour.white),
                             ),
                             const SizedBox(height: 10),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: List.generate(
-                                index.isOdd ? 1 : 2,
-                                (i) => Container(
-                                  width: MediaQuery.of(context).size.width *
-                                      (index.isOdd ? 0.31 : 0.15),
-                                  padding: const EdgeInsets.symmetric(
-                                      vertical: 6, horizontal: 11),
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(5),
-                                    color: Colour.black11,
-                                  ),
-                                  child: Column(
-                                    children: [
-                                      Text(
-                                        '12 Months',
-                                        style: TextStyle(
-                                            fontSize: 6,
-                                            color: Colour.grey08,
-                                            height: 0.3),
-                                      ),
-                                      Text(
-                                        'RM520',
-                                        style: TextStyle(
-                                            fontSize: 10,
-                                            color: Colour.yellow,
-                                            fontWeight: FontWeight.w600),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ),
+                            // Row(
+                            //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            //   children: List.generate(
+                            //     1,
+                            //     (i) => Container(
+                            //       width: MediaQuery.of(context).size.width *
+                            //           (index.isOdd ? 0.31 : 0.15),
+                            //       padding: const EdgeInsets.symmetric(
+                            //           vertical: 6, horizontal: 11),
+                            //       decoration: BoxDecoration(
+                            //         borderRadius: BorderRadius.circular(5),
+                            //         color: Colour.black11,
+                            //       ),
+                            //       child: Column(
+                            //         children: [
+                            //           Text(
+                            //             '12 Months',
+                            //             style: TextStyle(
+                            //                 fontSize: 6,
+                            //                 color: Colour.grey08,
+                            //                 height: 0.3),
+                            //           ),
+                            //           Text(
+                            //             'RM520',
+                            //             style: TextStyle(
+                            //                 fontSize: 10,
+                            //                 color: Colour.yellow,
+                            //                 fontWeight: FontWeight.w600),
+                            //           ),
+                            //         ],
+                            //       ),
+                            //     ),
+                            //   ),
+                            // ),
                           ],
                         ),
                       ),

@@ -1,6 +1,10 @@
 import 'dart:io';
 
 import 'package:ebike_flutter/l10n/l10n.dart';
+import 'package:ebike_flutter/local_save.dart';
+import 'package:ebike_flutter/providers/check_out_provider.dart';
+import 'package:ebike_flutter/providers/history_provider.dart';
+import 'package:ebike_flutter/providers/order_provider.dart';
 import 'package:ebike_flutter/providers/providers.dart';
 import 'package:ebike_flutter/router.dart';
 import 'package:ebike_flutter/utils/util.dart';
@@ -10,9 +14,11 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
   ]).then((value) {
@@ -22,6 +28,10 @@ void main() {
           ChangeNotifierProvider(create: (context) => LocaleProvider()),
           ChangeNotifierProvider(create: (context) => BottomNavBarProvider()),
           ChangeNotifierProvider(create: (context) => KYCProvider()),
+          ChangeNotifierProvider(create: (context) => MyBikeProvider()),
+          ChangeNotifierProvider(create: (context) => HistoryProvider()),
+          ChangeNotifierProvider(create: (context) => OrderProvider()),
+          ChangeNotifierProvider(create: (context) => CheckOutProvider()),
         ],
         child: const MyApp(),
       ),
@@ -52,7 +62,12 @@ class MyApp extends StatelessWidget {
       ],
       theme: ThemeData(
         useMaterial3: true,
-        colorScheme: ColorScheme.light(background: Colour.black),
+        appBarTheme: AppBarTheme(
+          backgroundColor: Colour.black,
+        ),
+        colorScheme: ColorScheme.dark(
+          background: Colour.black,
+        ),
       ),
       builder: EasyLoading.init(),
     );

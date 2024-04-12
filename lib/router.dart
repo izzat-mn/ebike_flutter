@@ -1,4 +1,8 @@
 import 'package:ebike_flutter/bottomNavBar/bottomNavBar.dart';
+import 'package:ebike_flutter/views/home/add_address_view.dart';
+import 'package:ebike_flutter/views/home/check_out_view.dart';
+import 'package:ebike_flutter/views/my_bike/history_view.dart';
+import 'package:ebike_flutter/views/order/order_view.dart';
 import 'package:ebike_flutter/views/view.dart';
 import 'package:go_router/go_router.dart';
 
@@ -8,6 +12,9 @@ class Routers {
       GoRoute(
         path: '/',
         builder: (context, state) => const BottomNavBar(),
+        onExit: (context) {
+          return false;
+        },
         routes: [
           GoRoute(
             path: 'kyc',
@@ -32,6 +39,18 @@ class Routers {
           GoRoute(
             path: 'product_approval',
             builder: (context, state) => const ProductApproval(),
+          ),
+          GoRoute(
+            path: 'history',
+            builder: (context, state) => const HistoryView(),
+          ),
+          GoRoute(
+            path: 'check_out',
+            builder: (context, state) => const CheckoutView(),
+          ),
+          GoRoute(
+            path: 'add_address',
+            builder: (context, state) => const AddAddressView(),
           ),
         ],
       ),

@@ -17,4 +17,12 @@ class Colour {
   static Color yellow07 = const Color(0xFF33300D);
   static Color yellow = const Color(0xFFF9EE5D);
   static Color red = Colors.red;
+  static Color grey14 = const Color(0xFF444011);
+  static Color gradientBlack1 = const Color(0xFF505050);
+  static Color gradientBlack2 = const Color(0xFF171717);
+  static Color grey15 = const Color(0xFF606060);
+  static Color greyYelllow = const Color(0xFF3C390E);
+  static Color darkGrey = const Color(0xFF1f1f1f);
+  static Color black12 = const Color(0xFF1d1d1d);
+  static Color lightGrey = const Color(0xFF454545);
 }

@@ -17,7 +17,6 @@ class BottomNavBar extends StatelessWidget {
       onItemSelected: (val) {
         provider.onItemSelected(val);
       },
-
       screens: provider.pages,
       items: provider.navBarsItems(),
       confineInSafeArea: true,
@@ -27,18 +26,20 @@ class BottomNavBar extends StatelessWidget {
       stateManagement: true,
       hideNavigationBarWhenKeyboardShows: true,
       decoration: const NavBarDecoration(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(15)),
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(15),
+        ),
       ),
       popAllScreensOnTapOfSelectedTab: true,
       popActionScreens: PopActionScreensType.all,
       itemAnimationProperties: const ItemAnimationProperties(
-        duration: Duration(milliseconds: 200),
+        duration: Duration(milliseconds: 100),
         curve: Curves.ease,
       ),
       screenTransitionAnimation: const ScreenTransitionAnimation(
         animateTabTransition: true,
         curve: Curves.ease,
-        duration: Duration(milliseconds: 200),
+        duration: Duration(milliseconds: 100),
       ),
       navBarStyle: NavBarStyle.style7,
     );

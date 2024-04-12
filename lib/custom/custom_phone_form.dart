@@ -82,7 +82,7 @@ class CustomPhoneForm extends StatelessWidget {
                 countryNameStyle: TextStyle(color: Colour.white),
                 countryCodeStyle: TextStyle(color: Colour.white),
                 searchFieldCursorColor: Colour.white,
-                backgroundColor: Colour.yellow07,
+                backgroundColor: Colour.blackBottomNavBar,
               ),
             ),
           ),
