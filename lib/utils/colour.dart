@@ -25,4 +25,5 @@ class Colour {
   static Color darkGrey = const Color(0xFF1f1f1f);
   static Color black12 = const Color(0xFF1d1d1d);
   static Color lightGrey = const Color(0xFF454545);
+  static Color blackYellow = const Color(0xFF2d2b10);
 }

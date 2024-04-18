@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:ebike_flutter/custom/custom.dart';
 import 'package:ebike_flutter/providers/check_out_provider.dart';
 import 'package:ebike_flutter/utils/util.dart';
@@ -15,6 +17,13 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   late AppLocalizations local;
+
+  @override
+  void initState() {
+    super.initState();
+
+    print('yuayayay');
+  }
 
   @override
   void didChangeDependencies() {
@@ -301,7 +310,10 @@ class _HomeViewState extends State<HomeView> {
                           ),
                           child: const Text(
                             'View Details',
-                            style: TextStyle(fontSize: 10),
+                            style: TextStyle(
+                              fontSize: 10,
+                              color: Colors.black,
+                            ),
                           ),
                         ),
                       ),

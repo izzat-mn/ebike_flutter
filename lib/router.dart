@@ -1,8 +1,10 @@
 import 'package:ebike_flutter/bottomNavBar/bottomNavBar.dart';
 import 'package:ebike_flutter/views/home/add_address_view.dart';
 import 'package:ebike_flutter/views/home/check_out_view.dart';
+import 'package:ebike_flutter/views/home/check_out_view_confirmation.dart';
 import 'package:ebike_flutter/views/my_bike/history_view.dart';
 import 'package:ebike_flutter/views/order/order_view.dart';
+import 'package:ebike_flutter/views/profile/refer_view.dart';
 import 'package:ebike_flutter/views/view.dart';
 import 'package:go_router/go_router.dart';
 
@@ -51,6 +53,14 @@ class Routers {
           GoRoute(
             path: 'add_address',
             builder: (context, state) => const AddAddressView(),
+          ),
+          GoRoute(
+            path: 'check_out_confirmation',
+            builder: (context, state) => const CheckOutViewConfirmation(),
+          ),
+          GoRoute(
+            path: 'refer_friend',
+            builder: (context, state) => const ReferFriendView(),
           ),
         ],
       ),

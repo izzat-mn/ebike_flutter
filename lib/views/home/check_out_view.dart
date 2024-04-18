@@ -394,7 +394,9 @@ class _CheckoutViewState extends State<CheckoutView> {
                   ),
                 ),
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    context.push('/check_out_confirmation');
+                  },
                   child: Container(
                     margin: const EdgeInsets.only(top: 20),
                     width: double.infinity,
